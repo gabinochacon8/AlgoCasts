@@ -14,6 +14,12 @@
 //       ' ### '
 //       '#####'
 
-function pyramid(n) {}
+const numOfCols = (n) => {
+  let result;
+  
+}
+
+function pyramid(n) {
+}
 
 module.exports = pyramid;

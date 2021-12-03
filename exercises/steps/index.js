@@ -17,16 +17,45 @@
 //       '### '
 //       '####'
 
-function steps(n) {
-  for (let i = 1; i <= n; i++) {
-    const result = new Array(n).fill(' ')
-    let x = 0;
-    while(x < i) {
-      result[x] = '#';
-      x++;
-    }
-    console.log(result.join(''))
+function steps(n, row = 0, stair = '') {
+  /** V1 - My Solution */
+  // for (let i = 1; i <= n; i++) {
+    //   const result = new Array(n).fill(' ')
+  //   let x = 0;
+  //   while(x < i) {
+  //     result[x] = '#';
+  //     x++;
+  //   }
+  //   console.log(result.join(''))
+  // }
+
+  /** V2 */
+  // for (let row = 0; row < n; row++) {
+  //   let stair = '';
+  //   for (let col = 0; col < n; col++) {
+  //     if (row >= col) {
+  //       stair += '#';
+  //     } else {
+  //       stair += ' ';
+  //     }
+  //   }
+  //   console.log(stair)
+  // }
+
+  /** V3 - Recursive */
+  if (n === row) {
+    return;
   }
+  if (n === stair.length) {
+    console.log(stair);
+    return steps(n, row + 1);
+  }
+  if (stair.length <= row) {
+    stair += '#';
+  } else {
+    stair += ' ';
+  }
+  steps(n, row, stair);
 }
 
 module.exports = steps;
